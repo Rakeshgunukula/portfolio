@@ -350,8 +350,7 @@
     background:var(--color);
     border-radius:50%;
     left:-11px;
-    animation:anim 1.2s linear infinite;
-    animation-fill-mode: forwards;
+    animation:anim 1.2s linear infinite forwards alternate-reverse;
 }
 @keyframes anim{
     0% {
