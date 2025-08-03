@@ -1,0 +1,115 @@
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    scroll-behavior: smooth;
+    overflow-X: hidden;
+  }
+  nav {
+    position: fixed; top:0; left:0; width:100%;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    display: flex; justify-content: space-between; align-items:center;
+    padding: 1rem 2rem; z-index:1000;
+  }
+  nav .logo {
+    font-size:1.5rem; font-weight:bold;
+    color: #0ff; text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  }
+  nav ul { display:flex; list-style:none; gap:1.5rem; }
+  nav a {
+    color: #fff; text-decoration:none;
+    text-shadow: 0 0 5px #0ff;
+  }
+  nav a:hover {
+    color: #0ff; text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  }
+  #vanta-bg {
+    position: absolute; top:0; left:0; width:100%; height:100%; z-index:0;
+  }
+  .hero {
+    height:100vh; position:relative; z-index:1;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #00f, 0 0 40px #0ff;
+  }
+  .hero p {
+    font-size: 1.2rem; margin: 1rem 0;
+    text-shadow: 0 0 5px #0ff;
+  }
+  .neon-btn {
+    background: transparent;
+    border: 2px solid #0ff;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    color: #0ff;
+    cursor:pointer;
+    border-radius:5px;
+    text-shadow: 0 0 5px #0ff;
+    box-shadow: 0 0 5px #0ff, inset 0 0 5px #0ff;
+    transition: 0.3s;
+  }
+  .neon-btn:hover {
+    box-shadow: 0 0 20px #0ff, inset 0 0 10px #0ff;
+    transform: scale(1.05);
+  }
+  section {
+    padding:4rem 2rem; max-width:1000px; margin:auto;
+    opacity:0; transform: translateY(100px);
+    transition: all 1.2s ease;
+  }
+  section.visible { opacity:1; transform: translateY(0); }
+  h2 {
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    margin-bottom: 1rem;
+  }
+  .projects {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:1.5rem;
+  }
+  .project-card {
+    background: rgba(255,255,255,0.05);
+    padding:1.5rem; border-radius:10px;
+    box-shadow: 0 0 10px black;
+    transition:all 1.5s ease;
+    transform : scale(0.5);
+    opacity: 0;
+  }
+.project-card.visible{
+  transform : scale(1);
+  opacity:1;
+}
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #0ff;
+  }
+  #typewriter{
+    position:relative;
+    border-right:3px solid #0ff;
+    margin-left:10px;
+  }
+  #about p{
+    color:rgb(150, 140, 140);
+    border-bottom:2px solid #333;
+    padding-bottom:50px;
+  }
+  footer {
+    text-align:center; padding:1.5rem;
+    background: rgba(0,0,0,0.6);
+    text-shadow: 0 0 5px #0ff;
+  }
+  @media (max-width:768px) {
+    nav ul { display:none; }
+    .hero h1 { font-size:2rem; }
+  }
+
+   <h2>About Me</h2>
+  <p>Hi,I'm <span style="color:white;">Gunukula Rakesh</span>,a Passionate Frontend Web Developer with strong skills in HTML, CSS, and javascript,currently expanding my experience into Full Stack Development using for the Frontend and Django (python) for the backend. I'm a B.Tech Data Science student with a creative mindset and a deep interest in building modern, interactive, and user-friendly websites. I love experimenting with animations, 3D effects, and clean UI designs to create websites that not only work well but also look visually stunning.<br><br><br>
+    Apart from coding, I am dedicated to <span style="color:white;">Fitness and self-improvement</span>, which helps me stay focused and disciplined in my work. My goal is to become a highly skilled Full Stack + AI Developer and work on projects that have a real-world impact.
+  </p>

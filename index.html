@@ -115,6 +115,7 @@
     nav ul { display:none; }
     .hero h1 { font-size:2rem; }
   }
+
 </style>
 </head>
 <body>
@@ -123,7 +124,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="logo">Portofolio</div>
+  <div class="logo">Rakesh</div>
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
@@ -141,7 +142,7 @@
 
 <!-- ABOUT -->
 <section id="about" class="animate">
-  <h2>About Me</h2>
+   <h2>About Me</h2>
   <p>Hi,I'm <span style="color:white;">Gunukula Rakesh</span>,a Passionate Frontend Web Developer with strong skills in HTML, CSS, and javascript,currently expanding my experience into Full Stack Development using for the Frontend and Django (python) for the backend. I'm a B.Tech Data Science student with a creative mindset and a deep interest in building modern, interactive, and user-friendly websites. I love experimenting with animations, 3D effects, and clean UI designs to create websites that not only work well but also look visually stunning.<br><br><br>
     Apart from coding, I am dedicated to <span style="color:white;">Fitness and self-improvement</span>, which helps me stay focused and disciplined in my work. My goal is to become a highly skilled Full Stack + AI Developer and work on projects that have a real-world impact.
   </p>
@@ -169,7 +170,7 @@
 <!-- CONTACT -->
 <section id="contact" class="animate">
   <h2>Contact</h2>
-  <p>Email: gunukularakesh7@gmail.com</p>
+  <p>Email: rakesh@example.com</p>
 </section>
 
 <!-- FOOTER -->
@@ -187,8 +188,8 @@ VANTA.NET({
   el: "#vanta-bg",
   mouseControls: true,
   touchControls: true,
-  minHeight: 700.00,
-  minWidth: 700.00,
+  minHeight: 200.00,
+  minWidth: 200.00,
   scale: 1.00,
   scaleMobile: 1.00,
   color: 0x00ffff,
@@ -199,7 +200,7 @@ VANTA.NET({
 });
 
 /* TYPEWRITER */
-const roles = ["Frontend Developer.", "Web Designer.",'Problem Solver.'];
+const roles = ["Rakesh", "Frontend Developer", "Web Designer"];
 let roleIndex = 0, charIndex = 0, typing = true;
 const typewriter = document.getElementById("typewriter");
 
@@ -211,7 +212,7 @@ function typeEffect() {
       setTimeout(typeEffect, 100);
     } else {
       typing = false;
-      setTimeout(typeEffect, 1540);
+      setTimeout(typeEffect, 1500);
     }
   } else {
     if (charIndex > 0) {
@@ -227,7 +228,8 @@ function typeEffect() {
 }
 typeEffect();
 
-/* SCROLL FADE-IN 
+/* SCROLL FADE-IN */
+/*
 const sections = document.querySelectorAll("section");
 function checkVisible() {
   const triggerBottom = window.innerHeight * 0.85;
@@ -238,7 +240,6 @@ function checkVisible() {
 }
 window.addEventListener("scroll", checkVisible);
 checkVisible();*/
-//scroll animations
 const section = document.querySelectorAll('.animate');
 const projects = document.querySelectorAll('.project-card');
 const observer = new IntersectionObserver((entries)=>{
@@ -256,9 +257,9 @@ const observer = new IntersectionObserver((entries)=>{
 });
 section.forEach((sec)=>{
   observer.observe(sec);
-})
-
+});
 </script>
 
 </body>
 </html>
+
