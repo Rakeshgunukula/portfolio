@@ -1,12 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile-Website-Design</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rakesh | Neon Portfolio</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: Arial, sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    scroll-behavior: smooth;
+    overflow-X: hidden;
+  }
+  nav {
+    position: fixed; top:0; left:0; width:100%;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    display: flex; justify-content: space-between; align-items:center;
+    padding: 1rem 2rem; z-index:1000;
+  }
+  nav .logo {
+    font-size:1.5rem; font-weight:bold;
+    color: #0ff; text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  }
+  nav ul { display:flex; list-style:none; gap:1.5rem; }
+  nav a {
+    color: #fff; text-decoration:none;
+    text-shadow: 0 0 5px #0ff;
+  }
+  nav a:hover {
+    color: #0ff; text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  }
+  #vanta-bg {
+    position: absolute; top:0; left:0; width:100%; height:100%; z-index:0;
+  }
+  .hero {
+    height:100vh; position:relative; z-index:1;
+    display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #00f, 0 0 40px #0ff;
+  }
+  .hero p {
+    font-size: 1.2rem; margin: 1rem 0;
+    text-shadow: 0 0 5px #0ff;
+  }
+  .neon-btn {
+    background: transparent;
+    border: 2px solid #0ff;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    color: #0ff;
+    cursor:pointer;
+    border-radius:5px;
+    text-shadow: 0 0 5px #0ff;
+    box-shadow: 0 0 5px #0ff, inset 0 0 5px #0ff;
+    transition: 0.3s;
+  }
+  .neon-btn:hover {
+    box-shadow: 0 0 20px #0ff, inset 0 0 10px #0ff;
+    transform: scale(1.05);
+  }
+  section {
+    padding:4rem 2rem; max-width:1000px; margin:auto;
+    opacity:0; transform: translateY(100px);
+    transition: all 1.2s ease;
+  }
+  section.visible { opacity:1; transform: translateY(0); }
+  h2 {
+    color: #0ff;
+    text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+    margin-bottom: 1rem;
+  }
+  .projects {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:1.5rem;
+  }
+  .project-card {
+    background: rgba(255,255,255,0.05);
+    padding:1.5rem; border-radius:10px;
+    box-shadow: 0 0 10px black;
+    transition:all 1.5s ease;
+    transform : scale(0.5);
+    opacity: 0;
+  }
+.project-card.visible{
+  transform : scale(1);
+  opacity:1;
+}
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #0ff;
+  }
+  #typewriter{
+    position:relative;
+    border-right:3px solid #0ff;
+    margin-left:10px;
+  }
+  #about p{
+    color:rgb(150, 140, 140);
+    border-bottom:2px solid #333;
+    padding-bottom:50px;
+  }
+  footer {
+    text-align:center; padding:1.5rem;
+    background: rgba(0,0,0,0.6);
+    text-shadow: 0 0 5px #0ff;
+  }
+  @media (max-width:768px) {
+    nav ul { display:none; }
+    .hero h1 { font-size:2rem; }
+  }
+</style>
 </head>
 <body>
-    
+
+<div id="vanta-bg"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Portofolio</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero animate">
+  <h1>Hi, I'm <span id="typewriter"></span></h1>
+  <p>Frontend Developer & Designer</p>
+  <button class="neon-btn" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View My Work</button>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="animate">
+  <h2>About Me</h2>
+  <p>Hi,I'm <span style="color:white;">Gunukula Rakesh</span>,a Passionate Frontend Web Developer with strong skills in HTML, CSS, and javascript,currently expanding my experience into Full Stack Development using for the Frontend and Django (python) for the backend. I'm a B.Tech Data Science student with a creative mindset and a deep interest in building modern, interactive, and user-friendly websites. I love experimenting with animations, 3D effects, and clean UI designs to create websites that not only work well but also look visually stunning.<br><br><br>
+    Apart from coding, I am dedicated to <span style="color:white;">Fitness and self-improvement</span>, which helps me stay focused and disciplined in my work. My goal is to become a highly skilled Full Stack + AI Developer and work on projects that have a real-world impact.
+  </p>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="animate">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project-card animate">
+      <h3>Amazon Clone</h3>
+      <p>Responsive e-commerce UI inspired by Amazon.</p>
+    </div>
+    <div class="project-card animate">
+      <h3>Netflix UI</h3>
+      <p>Netflix-inspired UI with glowing hover effects.</p>
+    </div>
+    <div class="project-card animate">
+      <h3>Portfolio</h3>
+      <p>Personal neon-themed portfolio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="animate">
+  <h2>Contact</h2>
+  <p>Email: gunukularakesh7@gmail.com</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Rakesh. Neon Portfolio</p>
+</footer>
+
+<!-- LIBS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
+
+<script>
+/* 3D BACKGROUND */
+VANTA.NET({
+  el: "#vanta-bg",
+  mouseControls: true,
+  touchControls: true,
+  minHeight: 700.00,
+  minWidth: 700.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0x00ffff,
+  backgroundColor: 0x0a0a0a,
+  points: 15.00,
+  maxDistance: 20.00,
+  spacing: 18.00
+});
+
+/* TYPEWRITER */
+const roles = ["Frontend Developer.", "Web Designer.",'Problem Solver.'];
+let roleIndex = 0, charIndex = 0, typing = true;
+const typewriter = document.getElementById("typewriter");
+
+function typeEffect() {
+  if (typing) {
+    if (charIndex < roles[roleIndex].length) {
+      typewriter.textContent += roles[roleIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(typeEffect, 100);
+    } else {
+      typing = false;
+      setTimeout(typeEffect, 1540);
+    }
+  } else {
+    if (charIndex > 0) {
+      typewriter.textContent = roles[roleIndex].substring(0, charIndex - 1);
+      charIndex--;
+      setTimeout(typeEffect, 50);
+    } else {
+      typing = true;
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(typeEffect, 500);
+    }
+  }
+}
+typeEffect();
+
+/* SCROLL FADE-IN 
+const sections = document.querySelectorAll("section");
+function checkVisible() {
+  const triggerBottom = window.innerHeight * 0.85;
+  sections.forEach(sec => {
+    const boxTop = sec.getBoundingClientRect().top;
+    if (boxTop < triggerBottom) sec.classList.add("visible");
+  });
+}
+window.addEventListener("scroll", checkVisible);
+checkVisible();*/
+//scroll animations
+const section = document.querySelectorAll('.animate');
+const projects = document.querySelectorAll('.project-card');
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach((entry,index)=>{
+    if(entry.isIntersecting){
+      setTimeout(()=>{
+        entry.target.classList.add('visible');
+      },index * 300);
+    }else{
+      entry.target.classList.remove('visible');
+    }
+  });
+},{
+  threshold:0.35
+});
+section.forEach((sec)=>{
+  observer.observe(sec);
+})
+
+</script>
+
 </body>
 </html>
