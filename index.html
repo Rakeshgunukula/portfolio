@@ -28,6 +28,7 @@
   nav a {
     color: #fff; text-decoration:none;
     text-shadow: 0 0 5px #0ff;
+    transition:all .5s ease;
   }
   nav a:hover {
     color: #0ff; text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
@@ -68,7 +69,7 @@
   section {
     padding:4rem 2rem; max-width:1000px; margin:auto;
     opacity:0; transform: translateY(100px);
-    transition: all 1.2s ease;
+    transition: all 2s ease;
   }
   section.visible { opacity:1; transform: translateY(0); }
   h2 {
@@ -100,6 +101,12 @@
     position:relative;
     border-right:3px solid #0ff;
     margin-left:10px;
+    animation:blink .35s infinite linear alternate;
+  }
+  @keyframes blink{
+    to{
+      border-right:none;
+    }
   }
   #about p{
     color:rgb(150, 140, 140);
@@ -111,9 +118,56 @@
     background: rgba(0,0,0,0.6);
     text-shadow: 0 0 5px #0ff;
   }
-  @media (max-width:768px) {
-    nav ul { display:none; }
-    .hero h1 { font-size:2rem; }
+  @media (min-width : 500px ) and (max-width : 768px) {
+     nav {
+      position: fixed;
+     }
+     nav ul{
+      position: absolute;
+      display: flex;
+      background:rgba(0,0,0,0.5);
+      flex-direction: column;
+      top:100%;
+      width:400px;
+       align-items: center;
+       z-index: -1;
+       right:0;
+       margin-right:-600px;
+       transition:margin-right .5s ease;
+       padding-bottom: 20px;
+       height: 1000%;
+     }
+     nav ul.visible{
+      margin-right:0;
+     }
+     nav ul li{
+      letter-spacing: 4px;
+      margin-top:20px;
+      width:100%;
+      display: flex;
+      justify-content: center;
+      padding:10px;
+      align-items: center;
+     }
+     nav ul li:hover{
+      background-color: rgb(52, 49, 49);
+    }
+
+    .hero h1{
+      font-size:2rem;
+    }
+    .lines {
+      cursor: pointer;
+    }
+     .lines .line{
+      position: relative;
+      margin-top:4px;
+      width:30px;
+      height:3px;
+      transition:all .5s ease;
+      background:white;
+    }
+    
   }
 
 </style>
@@ -125,6 +179,11 @@
 <!-- NAV -->
 <nav>
   <div class="logo">Portfolio</div>
+  <div class="lines">
+  <div class="line line1" ></div>
+    <div class="line line2"></div>
+    <div class="line line3"></div>
+  </div>
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
@@ -197,7 +256,7 @@ VANTA.NET({
 });
 
 /* TYPEWRITER */
-const roles = ["Rakesh", "Frontend Developer", "Web Designer"];
+const roles = ["Web Developer.", "Frontend Developer.", "Web Designer.",'Problem Solver.'];
 let roleIndex = 0, charIndex = 0, typing = true;
 const typewriter = document.getElementById("typewriter");
 
@@ -244,17 +303,32 @@ const observer = new IntersectionObserver((entries)=>{
     if(entry.isIntersecting){
       setTimeout(()=>{
         entry.target.classList.add('visible');
-      },index * 300);
+      },index * 350);
     }else{
       entry.target.classList.remove('visible');
     }
   });
 },{
-  threshold:0.35
+  threshold:0.1
 });
 section.forEach((sec)=>{
   observer.observe(sec);
 });
+//media queries lines
+const lines = document.querySelector('.lines');
+const line1 = document.querySelector('.line1');
+const line2 = document.querySelector('.line2');
+const line3 = document.querySelector('.line3');
+const body = document.querySelector('body');
+const container = document.querySelector('nav ul');
+lines.addEventListener('click',(e)=>{
+  e.stopPropagation();
+  container.classList.toggle('visible');
+});
+body.addEventListener('click',(e)=>{
+  e.stopPropagation();
+  container.classList.remove('visible');
+})
 </script>
 </body>
 </html>
