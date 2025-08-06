@@ -77,6 +77,46 @@
     text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
     margin-bottom: 1rem;
   }
+  #progress-container{
+    position: relative;
+    width:auto;
+    height:auto;
+    transform:translateY(150px);
+    transition:all 1s ease;
+  }
+  #progress-container.visible{
+    transform:translateY(0);
+  }
+  #progress-container h4{
+    margin-bottom: 5px;
+    letter-spacing: 4px;
+    color:white;
+  }
+  .progress{
+    position: relative;
+    width:95%;
+    height:10px;
+    background:rgba(255,255,255,0.05);
+    border-radius:10px;
+    box-shadow: 0 0 10px black;
+    overflow: hidden;
+  }
+  .progress .fill{
+    position: absolute;
+    width:0%;
+    height:100%;
+    background:#0ff;
+    filter:drop-shadow(0 0 10px #0ff) drop-shadow(0 0 50px #0ff);
+    border-radius:10px;
+    transition:width .8s ease;
+  }
+  .percentage{
+    text-align: end;
+    position:relative;
+    right:-20px;
+    top:-15px;
+
+  }
   .projects {
     display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:1.5rem;
@@ -167,8 +207,17 @@
       transition:all .5s ease;
       background:white;
     }
+    .percentage{
+      position: relative;
+      margin-left:40px;
+    }
   }
   @media (min-width : 401px ) and (max-width : 768px) {
+    .percentage{
+      position: relative;
+      right:-22px;
+      text-align: end;
+    }
      nav {
       position: fixed;
      }
@@ -257,6 +306,30 @@
   </p>
 </section>
 
+<!--Progress Bar-->
+<section id="progress-container" class="animate">
+  <h2>Skills</h2>
+  <h4>HTML</h4>
+  <div class="progress">
+    <div class="fill"></div>
+  </div>
+  <div class="percentage">0%</div>
+  <h4>CSS</h4>
+  <div class="progress">
+    <div class="fill"></div>
+  </div>
+  <div class="percentage">0%</div>
+  <h4>Javascript</h4>
+  <div class="progress">
+    <div class="fill"></div>
+  </div>
+  <div class="percentage">0%</div>
+  <h4>Git & GitHub</h4>
+  <div class="progress">
+    <div class="fill"></div>
+  </div>
+  <div class="percentage">0%</div>  
+</section>
 <!-- PROJECTS -->
 <section id="projects" class="animate">
   <h2>Projects</h2>
@@ -378,7 +451,39 @@ lines.addEventListener('click',(e)=>{
 body.addEventListener('click',(e)=>{
   e.stopPropagation();
   container.classList.remove('visible');
+});
+container.addEventListener('click',(e)=>{
+  e.stopPropagation();
 })
+//Progress Bar
+const progresscontainer = document.querySelector('#progress-container');
+const progressbars = document.querySelectorAll('.progress');
+const percentages = [100,85,70,65];
+const progressobserver = new IntersectionObserver((items)=>{
+  items.forEach((item)=>{
+    if(item.isIntersecting){
+      progressbars.forEach((bar,index)=>{
+        let fill = bar.querySelector('.fill');
+        let percent = bar.nextElementSibling;
+        let progress = 0;
+        let interval = setInterval(()=>{
+          if(progress >= percentages[index]){
+            clearInterval(interval);
+          }
+          else{
+            progress++;
+            fill.style.width = progress + "%";
+            percent.textContent = progress + "%";
+          }
+        },30);
+      });
+      progressobserver.unobserve(progresscontainer);
+    }
+  })
+},{
+  threshold:0.3
+});
+progressobserver.observe(progresscontainer);
 </script>
 </body>
 </html>
